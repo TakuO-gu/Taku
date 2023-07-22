@@ -1,0 +1,307 @@
+@charset "utf-8";
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+ *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  overscroll-behavior-y: none;
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* ban drag images */
+img {
+	user-drag: none;
+	-webkit-user-drag: none;
+	-moz-user-select: none;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+/* :where([draggable="true"]) {
+  -webkit-user-drag: element;
+} */
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+}
+html {
+  background: #222222;
+  font-size: 100%;
+}
+
+/* main-image */
+
+#main-image {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+#main-image .main-image{
+	/* position:fixed; */
+	top:0;
+	left:0;
+	z-index:-1;
+	width:100vw;
+	height: 100vh;
+  object-fit: cover;
+  opacity: 0.2;
+  transition: opacity 4s ease-out, height 4s ease-out;
+}
+
+#main-image .main-image.ready{
+	/* position:fixed; */
+	top:0;
+	left:0;
+	z-index:-1;
+	width:100vw;
+	height: 90vh;
+  object-fit: cover;
+  opacity: 1;
+}
+
+#main-image .back-indicator {
+  mix-blend-mode: difference;
+  position: absolute;
+  z-index: 999;
+  width: calc(8vw + 60%);
+  top: 0;
+  left: 5%;
+  transition: all 4s ease-out;
+}
+
+#main-image .back-indicator.ready{
+  mix-blend-mode: difference;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+
+#main-image .back-indicator img {
+  position: relative;
+  width: 8vw;
+  height: auto;
+  rotate: 0deg;
+  left: 40vw;
+  transition: rotate 6s ease-out, left 6s ease-out;
+}
+
+#main-image .back-indicator.ready img {
+  position: relative;
+  width: 8vw;
+  height: auto;
+  rotate: -360deg;
+  left: 0;
+  cursor: pointer;
+}
+
+/* .back-indicator img::before {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border: 2px solid #F4F4F4;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background: red;
+} */
+
+
+#main-image .back-indicator .back-indicator_bar {
+  position: relative;
+  border-bottom: solid #F4F4F4 3px;
+  width: 0%;
+  position: absolute;
+  left: 4vw;
+  top: 4vw;
+  transition: all 4s ease-out;
+}
+
+#main-image .back-indicator .back-indicator_bar.ready {
+  position: relative;
+  border-bottom: solid #F4F4F4 3px;
+  width: 60%;
+  position: absolute;
+  left: 4vw;
+  top: 4vw;
+}
+
+#title {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(34, 34, 34, 0.00) 0%, rgba(34, 34, 34, 0.80) 100%);
+  backdrop-filter: blur(50px);
+  text-align: center;
+  padding-top: 260px;
+}
+
+#title h1 {
+  color: var(--smoke, #F4F4F4);
+  font-family: Salina-Trial;
+  font-size: 10vw;
+  font-style: normal;
+  font-weight: 100;
+  /* margin-top: 260px; */
+  margin-bottom: 200px;
+}
+
+#title h2 {
+  color: var(--smoke, #F4F4F4);
+  font-family: Scotch Display;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 1.8px;
+}
+
+#title .thumbnail {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  border: #FFF 3px solid;
+  position: fixed;
+  left: 50%;
+}
+
+#showcase {
+  width: 100%;
+  height: 100vh;
+  background: #222222;
+  display: block;
+}
+
+#showcase .description {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40%;
+  margin-left: calc((60% - 706px)/ 2);
+}
+
+#showcase .description p {
+  color: #FFF;
+  font-family: Salina-Trial;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: 62px;
+}
+
+#showcase .gallery {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#showcase .gallery .container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+#showcase .gallery .container::-webkit-scrollbar{
+  display: none;
+}
+
+#showcase .gallery .container ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 706px;
+}
+#showcase .gallery .container li {
+  height: 100vh;
+  width: auto;
+  scroll-snap-align: start;
+}
