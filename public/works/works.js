@@ -1,7 +1,4 @@
 // 画像の現れ方を調節するアニメーション
-// ScrollReveal().reveal('.box');
-// ScrollReveal().reveal('.container .box', { container: '.container', delay: 100, reset: true });
-
 window.onload = function() {
   setTimeout(function() {
     const allElements = document.getElementsByTagName("*");
@@ -12,40 +9,52 @@ window.onload = function() {
 };
 
 
-
+// .back-indicator acitvation
 let startPos = 0;
 let dragging = false;
 
-// Get the element
 const element = document.querySelector('.back-indicator .circle');
 
-// Add event listeners
 element.addEventListener('mousedown', function(event) {
-  // Record the initial position when the mouse button is pressed
   startPos = event.clientX;
   dragging = true;
 });
 
 document.addEventListener('mousemove', function(event) {
   if (dragging) {
-    // Only move the element along the x-axis
     event.preventDefault();
     const moveDistance = event.clientX - startPos;
     element.style.transform = `translateX(${moveDistance}px)`;
-
-    // If the element was moved more than 30vw to the right, go to a specific page
     const vw20 = window.innerWidth * 0.2;
     if (moveDistance > vw20) {
-      window.location.href = '../index_graphic.html';
+      window.history.back(); // 前のページに戻る
     }
   }
 });
+
 
 document.addEventListener('mouseup', function(event) {
   if (dragging) {
     dragging = false;
 
-    // Reset the position of the element
     element.style.transform = 'translateX(0px)';
   }
 });
+
+
+window.addEventListener("scroll", function() {
+  // 要素を取得
+  let element = document.querySelector('#main-image .main-image');
+  let viewportHeight = window.innerHeight;
+  let scrollPosition = window.pageYOffset / viewportHeight;
+  
+  // scrollPositionを0から1の範囲に制限
+  scrollPosition = Math.min(Math.max(scrollPosition, 0), 1);
+  
+  // scaleValueを1から1.4の範囲で計算
+  let scaleValue = 1 + (0.1 * scrollPosition);
+  
+  // element.style.transformOrigin = "top";
+  element.style.transform = `translateZ(0) scale(${scaleValue})`;
+});
+
