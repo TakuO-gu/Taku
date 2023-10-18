@@ -437,7 +437,7 @@ header .advertisment a {
 #philosophy .message h3 {
   color: var(--smoke, #F4F4F4);
   text-align: center;
-  font-size: calc(48px * (100vw - 768 / 1152));
+  font-size: 48px;
   font-family: Scotch Display;
   font-style: normal;
   font-weight: 400;
@@ -487,12 +487,13 @@ header .advertisment a {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-100%);
   }
 }
 
-#works .worksWindow .title .reelWrap{
+#works .worksWindow .title .reelWrap {
   display: flex;
   height: max-content;
   width: max-content;
@@ -656,15 +657,14 @@ header .advertisment a {
 
 /* footer */
 #footer {
-  margin: 54px auto;
+  margin: 0.03vw auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
 }
 
 #footer .symbol {
-width: 14%;
+  width: 14%;
   margin-right: 4%;
   display: inline-block;
 }
@@ -681,16 +681,15 @@ width: 14%;
 }
 
 #footer h2 img {
-  width: 169px;
-  height: 61px;
-  margin-right: 40px;
+  width: 8.8vw;
+  margin-right: 2vw;
 }
 
 #footer a {
   color: var(--smoke, #F4F4F4);
   text-align: center;
   font-family: A-OTF Ryumin Pr6N;
-  font-size: 40px;
+  font-size: 2vw;
   font-style: normal;
   font-weight: 900;
   letter-spacing: 2px;
@@ -704,7 +703,7 @@ width: 14%;
   justify-content: center;
   align-items: center;
   height: 100%;
-  margin-left: 148px;
+  margin-left: 7.7vw;
 }
 
 #footer .content h2,
@@ -715,5 +714,5 @@ width: 14%;
 @media screen and (max-width: 768px) {
   #philosophy .decStatement {
     width: 10%;
-  }  
+  }
 }
