@@ -78,13 +78,23 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollDelta = currentScrollTop > lastScrollTop ? -2.7 : 2.7;
-
-    // elementが存在する場合のみ更新
-    updateElementPosition(designerElement, scrollDelta);
-    updateElementPosition(worksElement, scrollDelta / 1.5); // 2.7 / 1.8 = 1.5
-
+  
+    // スクロールが一番上にある場合、要素を初期位置に戻します。
+    if (currentScrollTop === 0) {
+      if (designerElement) {
+        designerElement.style.left = ''; // 初期位置に戻すため、leftプロパティをリセット
+      }
+      if (worksElement) {
+        worksElement.style.left = ''; // 初期位置に戻すため、leftプロパティをリセット
+      }
+    } else {
+      // そうでない場合は、要素の位置を更新します。
+      updateElementPosition(designerElement, scrollDelta);
+      updateElementPosition(worksElement, scrollDelta / 1.5); // 2.7 / 1.8 = 1.5
+    }
+  
     lastScrollTop = currentScrollTop;
-  });
+  });  
 });
 
 let philosophyMessage = document.querySelector("#philosophy .message"),
@@ -109,8 +119,8 @@ let worksWindows = Array.from(document.querySelectorAll("#works .worksWindow .wo
             a=(l.top + l.bottom) / (2 * viewportHeight);
         // 'a' の範囲を -1 から 1 に調整します。
         a = 2 * a - 1;
-        // 'a' の範囲を -40 から 40 にスケーリングします。
-        a = a * 40; 
+        // 'a' の範囲を -60 から 60 にスケーリングします。
+        a = a * -20; 
         t.style.transform=`translate(-50%, -50%) translate3d(0, ${a}px, 0)`;
     })
 }
@@ -121,6 +131,8 @@ let worksWindows = Array.from(document.querySelectorAll("#works .worksWindow .wo
   (t !== scrollPosition || l !== viewportHeight) && (scrollPosition = t, viewportHeight = l, updatePositions()), requestAnimationFrame(applyParallax)
 } */
 //window.addEventListener("scroll", applyParallax);
+
+
 let lastScrollTop = 0,
   lastTime = Date.now(),
   lastDirection = 0;
@@ -143,13 +155,24 @@ function adjustTransform() {
 }
 
 function animate() {
-  let t = window.pageYOffset || document.documentElement.scrollTop,
-      l = Date.now(),
-      a = Math.abs(t - lastScrollTop) / (l - lastTime);
-  t > lastScrollTop ? lastDirection = 1 : t < lastScrollTop ? lastDirection = -1 : a = .005, titles.forEach(t => {
-      t.variationValue = t.variationValue + 10 * a * lastDirection, t.variationValue >= 0 ? t.variationValue = -100 : t.variationValue <= -200 && (t.variationValue = -100);
-      let l = t.element.getBoundingClientRect();
-      l.right < 0 ? t.initialX += window.innerWidth + l.width : l.left > window.innerWidth && (t.initialX -= window.innerWidth + l.width)
-  }), lastScrollTop = t <= 0 ? 0 : t, lastTime = l, adjustTransform(), requestAnimationFrame(animate)
+  let e = window.pageYOffset || document.documentElement.scrollTop,
+      t = Date.now(),
+      l = Math.abs(e - lastScrollTop) / (t - lastTime);
+  e > lastScrollTop ? lastDirection = 1 : e < lastScrollTop ? lastDirection = -1 : l = .005;
+
+  // ウィンドウの幅に基づいて変化量を調整
+  const changeRate = window.innerWidth <= 820 ? 1 : 10; // 画面幅が820px以下の場合、変化量を10分の1にする
+
+  titles.forEach(e => {
+      // 変化量の計算にchangeRateを使用
+      e.variationValue = e.variationValue + changeRate * l * lastDirection;
+      e.variationValue >= 0 ? e.variationValue = -100 : e.variationValue <= -200 && (e.variationValue = -100);
+
+      let t = e.element.getBoundingClientRect();
+      t.right < 0 ? e.initialX += window.innerWidth + t.width : t.left > window.innerWidth && (e.initialX -= window.innerWidth + t.width)
+  });
+
+  lastScrollTop = e <= 0 ? 0 : e, lastTime = t, adjustTransform(), requestAnimationFrame(animate)
 }
+
 animate();

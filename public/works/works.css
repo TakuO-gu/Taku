@@ -226,10 +226,10 @@ html {
 
 #title h1 {
   color: var(--smoke, #F4F4F4);
-  font-family: Salina-Trial;
+  font-family: Scotch Display;
   font-size: clamp(22px, 10vw, 120px);
   font-style: normal;
-  font-weight: 100;
+  font-weight: 400;
   /* margin-top: 260px; */
   margin-bottom: 200px;
 }
@@ -260,6 +260,7 @@ html {
   background: #222222;
   display: block;
 }
+
 
 #showcase .description {
   display: inline-block;
@@ -374,5 +375,14 @@ html {
   #showcase .gallery li video {
     height: 55vh;
     width: 80vw;
+  }
+
+  #showcase .appUI ul {
+    height: 30vh;
+  }
+
+  #showcase .appUI li img,
+  #showcase .appUI li video {
+    height: 30vh;
   }
 }
