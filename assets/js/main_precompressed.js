@@ -3,8 +3,7 @@ function handleScrollEvent() {
   parallaxEffect();
   adjustVisibility();
   adjustMessageWidth();
-  updatePositions(); // これはapplyParallaxの中から抽出したもので、applyParallax自体は不要になります。
-  // 他のスクロールに関連する関数があれば、ここに追加します。
+  updatePositions();
 }
 
 // スクロールイベントに新しい関数を登録します。
@@ -26,6 +25,7 @@ function parallaxEffect() {
       l.style.transform = "translateY(" + -.5 * t + "px)"
   })
 }
+
 //window.addEventListener("scroll", parallaxEffect);
 let philosophyItems = document.querySelectorAll("#philosophy .myPhilosophy li");
 

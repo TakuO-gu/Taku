@@ -7,17 +7,37 @@
     <link rel="stylesheet" href="https://use.typekit.net/cny8dmo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <script type="text/javascript" src="./assets/js/main.js" defer></script>
+    <!-- <script type="text/javascript" src="./assets/js/main.js" defer></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js"></script>
+    <script srrc="text/javascript" src="./assets/js/GSAP.js" defer></script>
     <link rel="icon" href="./assets/img/favicon.ico">
-    <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="apple-touch-icon"
+      href="./assets/img/apple-touch-icon-180x180.png" sizes="180x180">
     <!-- <script async src="../dist/bundle.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js" integrity="sha512-90vH1Z83AJY9DmlWa8WkjkV79yfS2n2Oxhsi2dZbIv0nC4E6m5AbH8Nh156kkM7JePmqD6tcZsfad1ueoaovww==" crossorigin="anonymous"></script> -->
   </head>
   <body>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var images = document.getElementsByTagName('img');
+    for (var i = 0; i < images.length; i++) {
+        images[i].src = '';
+    }
+});
+
+    </script>
     <!-- <header>
       <div>
         <h1>
@@ -37,11 +57,15 @@
       <section id="hero">
         <button>Click to start</button>
         <div>
-          <span class="ImAGraphicDesigner">I'm a <span class="GraphicDesigner">Graphic designer</span>
+          <span class="ImAGraphicDesigner">I'm a <span class="GraphicDesigner">Graphic
+              designer</span>
           </span>
           <span class="heresMyWorks">Here's my works</span>
-          <svg width="362" height="418" viewBox="0 0 362 418" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M181 417.922C177.106 221.926 171.732 218.811 0 313.422C167.838 212.037 167.838 205.807 0 104.422C171.732 199.111 177.106 195.996 181 0C184.894 195.996 190.268 199.111 362 104.5C194.162 205.885 194.162 212.115 362 313.5C190.268 218.811 184.894 221.926 181 418V417.922Z" fill="#F6FF00" />
+          <svg width="362" height="418" viewBox="0 0 362 418" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M181 417.922C177.106 221.926 171.732 218.811 0 313.422C167.838 212.037 167.838 205.807 0 104.422C171.732 199.111 177.106 195.996 181 0C184.894 195.996 190.268 199.111 362 104.5C194.162 205.885 194.162 212.115 362 313.5C190.268 218.811 184.894 221.926 181 418V417.922Z"
+              fill="#F6FF00" />
           </svg>
           <img src="assets/img/myPortrait.png" class="myPortrait">
           <span class="designedByTaku">Designed by Taku</span>
@@ -51,30 +75,37 @@
       <section id="philosophy">
         <div class="static">
           <ul class="myPhilosophy">
-            <li>The work I create as a graphic designer embodies a specialized identity. </li>
-            <li>It aims to always keep the drawer of new ideas open and further incorporate new perspectives into that open drawer.</li>
-            <li>With purpose and challenges, the pieces appear novel and may not initially be familiar, </li>
-            <li>yet they are composed with a strong determination to leave a lasting impression. </li>
+            <li>The work I create as a graphic designer embodies a specialized
+              identity. </li>
+            <li>It aims to always keep the drawer of new ideas open and further
+              incorporate new perspectives into that open drawer.</li>
+            <li>With purpose and challenges, the pieces appear novel and may not
+              initially be familiar, </li>
+            <li>yet they are composed with a strong determination to leave a
+              lasting impression. </li>
           </ul>
           <div class="message">
-            <h3 class=".parallax3">The Pursuit of a Specialized Identity</h3>
+            <h3>The Pursuit of a Specialized Identity</h3>
           </div>
         </div>
-        <div class="decStatement parallax1 ">
-          <img src="assets/img/The-Pursuit-of-a-Specialized-Identity.png" alt="The Pursuit of a Specialized Identity">
+        <div class="decStatement">
+          <img src="assets/img/The-Pursuit-of-a-Specialized-Identity.png"
+            alt="The Pursuit of a Specialized Identity">
         </div>
-        <ul class="backgroundImages parallax3">
+        <ul class="backgroundImages">
           <li>
             <img src="assets/works/graphic/philosophyBG/36D_R.webp">
           </li>
           <li>
-            <img src="assets/works/graphic/philosophyBG/36D_Q.webp" style="opacity: 0.8;">
+            <img src="assets/works/graphic/philosophyBG/36D_Q.webp"
+              style="opacity: 0.8;">
           </li>
           <li>
             <img src="assets/works/graphic/philosophyBG/36D_P.webp">
           </li>
           <li>
-            <img src="assets/works/graphic/philosophyBG/36D_O.webp" style="opacity: 0.8;">
+            <img src="assets/works/graphic/philosophyBG/36D_O.webp"
+              style="opacity: 0.8;">
           </li>
           <li>
             <img src="assets/works/graphic/philosophyBG/36D_N.webp">
@@ -113,7 +144,8 @@
             <img src="assets/works/graphic/philosophyBG/36D_C.webp">
           </li>
           <li>
-            <img src="assets/works/graphic/philosophyBG/36D_B.webp" style="opacity: 0.6;">
+            <img src="assets/works/graphic/philosophyBG/36D_B.webp"
+              style="opacity: 0.6;">
           </li>
           <li>
             <img src="assets/works/graphic/philosophyBG/36D_C.webp">
@@ -123,7 +155,7 @@
       <section id="works">
         <a class="d36 worksWindow" href="works/d36.html">
           <div class="worksWindowBG">
-            <ul class="reelWrap">
+            <ul>
               <li>
                 <img src="assets/works/graphic/36D/36D_A.webp">
               </li>
@@ -149,30 +181,42 @@
               <li>
                 <h2>36 days of type</h2>
               </li>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
+              </li>
               <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+                <h2>36 days of type</h2>
+              </li>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>36 days of type</h2>
               </li>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
+              </li>
               <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+                <h2>36 days of type</h2>
+              </li>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>36 days of type</h2>
               </li>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
+              </li>
               <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+                <h2>36 days of type</h2>
+              </li>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
           </div>
@@ -186,54 +230,42 @@
               <li>
                 <h2>Sakuji Works</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>Sakuji Works</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>Sakuji Works</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>Sakuji Works</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>Sakuji Works</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>Sakuji Works</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
           </div>
@@ -247,72 +279,42 @@
               <li>
                 <h2>New Trial</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>New Trial</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>New Trial</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>New Trial</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>New Trial</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>New Trial</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
-              </li>
-            </ul>
-            <ul class="reelWrap">
-              <li>
-                <h2>New Trial</h2>
-              </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
-              </li>
-              <li>
-                <h2>New Trial</h2>
-              </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
           </div>
@@ -326,72 +328,42 @@
               <li>
                 <h2>App UI</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>App UI</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>App UI</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>App UI</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>App UI</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>App UI</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
-              </li>
-            </ul>
-            <ul class="reelWrap">
-              <li>
-                <h2>App UI</h2>
-              </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
-              </li>
-              <li>
-                <h2>App UI</h2>
-              </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
           </div>
@@ -405,80 +377,53 @@
               <li>
                 <h2>Poster</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>Poster</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>Poster</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>Poster</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
             <ul class="reelWrap">
               <li>
                 <h2>Poster</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
               <li>
                 <h2>Poster</h2>
               </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
-              </li>
-            </ul>
-            <ul class="reelWrap">
-              <li>
-                <h2>Poster</h2>
-              </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
-              </li>
-              <li>
-                <h2>Poster</h2>
-              </li>
-              <li>
-                <span>
-                  <img src="assets/img/Circle.png">
-                </span>
+              <li class="circleContainer">
+                <img src="assets/img/Circle.png" class="circle">
               </li>
             </ul>
           </div>
         </a>
       </section>
       <section id="footer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275 317" fill="none" class="symbol">
-          <path d="M137.042 316.187C134.093 167.902 130.024 165.546 0 237.125C127.076 160.42 127.076 155.707 0 79.0024C130.024 150.641 134.093 148.284 137.042 0C139.99 148.284 144.059 150.641 274.083 79.0614C147.007 155.766 147.007 160.479 274.083 237.184C144.059 165.546 139.99 167.902 137.042 316.245V316.187Z" fill="#F6FF00" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 275 317"
+          fill="none" class="symbol">
+          <path
+            d="M137.042 316.187C134.093 167.902 130.024 165.546 0 237.125C127.076 160.42 127.076 155.707 0 79.0024C130.024 150.641 134.093 148.284 137.042 0C139.99 148.284 144.059 150.641 274.083 79.0614C147.007 155.766 147.007 160.479 274.083 237.184C144.059 165.546 139.99 167.902 137.042 316.245V316.187Z"
+            fill="#F6FF00" />
         </svg>
         <div class="content">
           <h2>
