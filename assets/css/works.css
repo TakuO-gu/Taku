@@ -277,16 +277,50 @@ html {
   line-height: 1.8em;
 }
 
-.figma-link{
-  color: #A48BEA;
+.figma-link {
+  color: #a48bea;
   display: block;
-  background: #f4f4f4;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.figma-link::before {
+  transition: transform 0.15s, 0.15s border-radius 0.15s;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.1, 0.1);
+  border-radius: 50%;
+}
+
+.figma-link::before, .figma-link::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.figma-link:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+  border-radius: 0;
+}
+
+.figma-link::after {
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.figma-link:hover::after {
+  opacity: 0;
 }
 
 
-.figma-link:hover {
-  background-size: 2% 100%;
-}
 
 #showcase .gallery {
   display: inline-block;

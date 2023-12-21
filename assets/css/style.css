@@ -659,6 +659,16 @@ header .advertisment a {
   transform: translate(-50%, -50%);
 }
 
+#works .AD .worksWindowBG img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* footer */
 #footer {
   margin: 12vh auto 18vh;
