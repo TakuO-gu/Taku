@@ -130,6 +130,10 @@ meter {
   all: revert;
 }
 
+:root {
+  --smoke-color: #F4F4F4;
+}
+
 html {
   background: #222222;
   font-size: 100%;
@@ -149,7 +153,6 @@ body::before {
   background-color: #F6FF00;
   mix-blend-mode: color-burn;
   pointer-events: none;
-  /* ポインターイベントを透過させる */
   z-index: 999;
   /* 必要に応じて調整 */
   transition: opacity 1.2s ease-out;
@@ -188,8 +191,8 @@ header ul {
   display: flex;
 }
 
-header .graphic a {
-  color: var(--smoke, #F4F4F4);
+header a {
+  color: var(--smoke-color);
   font-size: 20px;
   font-family: Playfair Display;
   font-style: normal;
@@ -313,8 +316,8 @@ header .advertisment a {
 #hero.fade-in svg {
   width: 130px;
   height: auto;
-  top: 80vh;
-  left: 419px;
+  top: 70vh;
+  left: 500px;
 }
 
 #hero .myPortrait {
@@ -640,6 +643,16 @@ header .advertisment a {
   height: auto;
   object-fit: cover;
   border-radius: 4.7vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#works .brandIdentity  .worksWindowBG img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
   position: absolute;
   top: 50%;
   left: 50%;

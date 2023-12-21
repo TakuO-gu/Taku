@@ -10,7 +10,9 @@
     - The "symbol *" part is to solve Firefox SVG sprite bug
     - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
  */
- *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+*:where(
+    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+  ) {
   all: unset;
   display: revert;
 }
@@ -44,9 +46,9 @@ img {
 
 /* ban drag images */
 img {
-	user-drag: none;
-	-webkit-user-drag: none;
-	-moz-user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
 }
 
 /* removes spacing between cells in tables */
@@ -127,22 +129,22 @@ html {
   overflow: hidden;
 }
 
-#main-image .main-image{
-	position:fixed;
-	top:0;
-	left:0;
-	z-index:-1;
-	width:100vw;
-	height: 100vh;
+#main-image .main-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
   object-position: 50% 0;
   object-fit: cover;
   opacity: 0.2;
-  transition: opacity 4s ease-out, height 4s ease-out;
+  transition: opacity 1s ease-out, height 1s ease-out;
   will-change: transform;
 }
 
-#main-image .main-image.ready{
-	height: 90vh;
+#main-image .main-image.ready {
+  height: 90vh;
   opacity: 1;
 }
 
@@ -153,10 +155,10 @@ html {
   width: calc(8vw + 60%);
   top: 0;
   left: 5%;
-  transition: all 4s ease-out;
+  transition: all 1.5s ease-out;
 }
 
-#main-image .back-indicator.ready{
+#main-image .back-indicator.ready {
   mix-blend-mode: difference;
   position: absolute;
   z-index: 999;
@@ -170,7 +172,7 @@ html {
   height: auto;
   rotate: 0deg;
   left: 40vw;
-  transition: rotate 6s ease-out, left 6s ease-out;
+  transition: rotate 1.5s, left 1.5s;
 }
 
 #main-image .back-indicator.ready img {
@@ -195,37 +197,35 @@ html {
   background: red;
 } */
 
-
 #main-image .back-indicator .back-indicator_bar {
   position: relative;
-  border-bottom: solid #F4F4F4 3px;
+  border-bottom: solid #f4f4f4 3px;
   width: 0%;
   position: absolute;
   left: 4vw;
   top: 4vw;
-  transition: all 4s ease-out;
+  transition: all 1.5s ease-out;
 }
 
 #main-image .back-indicator .back-indicator_bar.ready {
-  position: relative;
-  border-bottom: solid #F4F4F4 3px;
   width: 60%;
-  position: absolute;
-  left: 4vw;
-  top: 4vw;
 }
 
 #title {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(180deg, rgba(34, 34, 34, 0.00) 0%, rgba(34, 34, 34, 0.80) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(34, 34, 34, 0) 0%,
+    rgba(34, 34, 34, 0.8) 100%
+  );
   backdrop-filter: blur(50px);
   text-align: center;
   padding-top: 260px;
 }
 
 #title h1 {
-  color: var(--smoke, #F4F4F4);
+  color: var(--smoke, #f4f4f4);
   font-family: Scotch Display;
   font-size: clamp(22px, 10vw, 120px);
   font-style: normal;
@@ -235,7 +235,7 @@ html {
 }
 
 #title h2 {
-  color: var(--smoke, #F4F4F4);
+  color: var(--smoke, #f4f4f4);
   font-family: Scotch Display;
   font-size: clamp(14px, 2.8vw, 35px);
   font-style: normal;
@@ -248,7 +248,7 @@ html {
   width: 300px;
   height: 300px;
   display: inline-block;
-  border: #FFF 3px solid;
+  border: #fff 3px solid;
   position: fixed;
   left: 50%;
 }
@@ -261,7 +261,6 @@ html {
   display: block;
 }
 
-
 #showcase .description {
   display: inline-block;
   vertical-align: middle;
@@ -270,12 +269,23 @@ html {
 }
 
 #showcase .description p {
-  color: #FFF;
+  color: #fff;
   font-family: Scotch Display;
   font-size: 18px;
   font-style: normal;
   font-weight: 200;
   line-height: 1.8em;
+}
+
+.figma-link{
+  color: #A48BEA;
+  display: block;
+  background: #f4f4f4;
+}
+
+
+.figma-link:hover {
+  background-size: 2% 100%;
 }
 
 #showcase .gallery {
@@ -298,7 +308,7 @@ html {
   scroll-snap-type: y mandatory;
 }
 
-#showcase .gallery ul li:first-child{
+#showcase .gallery ul li:first-child {
   margin-top: 65vh;
 }
 
@@ -314,7 +324,6 @@ html {
 }
 
 @media screen and (max-width: 820px) {
-
   #showcase {
     padding: 5vh 0;
     display: flex;
@@ -348,7 +357,7 @@ html {
 
   #showcase .gallery li img,
   #showcase .gallery li video {
-    height: 65vh; 
+    height: 65vh;
     width: 100%;
     object-fit: contain;
   }
