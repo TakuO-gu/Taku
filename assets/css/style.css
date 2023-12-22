@@ -22,7 +22,6 @@
   font-family: 'Salina';
   src: url('../fonts/Salina-ExtraLight.otf') format('opentype');
   font-weight: 200;
-  /* Extra Light 一般的には 200 が使用されます */
   font-style: normal;
 }
 
@@ -30,7 +29,6 @@
   font-family: 'Salina';
   src: url('../fonts/Salina-Regular.otf') format('opentype');
   font-weight: 400;
-  /* または 400 を使用 */
   font-style: normal;
 }
 
@@ -431,17 +429,11 @@ header .advertisment a {
 }
 
 #philosophy .backgroundImages {
-  display: flex;
-  flex-direction: column;
   position: absolute;
-  height: 100%;
+  top: 0;
+  height: auto;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   z-index: -2;
-  top: 20vh;
-  will-change: transform;
 }
 
 #philosophy .backgroundImages img {
