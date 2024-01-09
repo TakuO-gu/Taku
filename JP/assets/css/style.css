@@ -524,7 +524,6 @@ header .advertisment a {
 
 #works .worksWindow .title h2 {
   display: inline-block;
-  /* border: #0a7efb 5px solid; */
   color: #FFF;
   font-size: 128px;
   font-family: 'Salina', cursive;
@@ -540,7 +539,6 @@ header .advertisment a {
 #works .worksWindow .title li img {
   width: 240px;
   height: 240px;
-  /* background: blue; */
 }
 
 #works .worksWindowBG {
@@ -750,28 +748,13 @@ header .advertisment a {
   #philosophy .myPhilosophy li {
     margin: 40vh 0 40vh 40vw;
     font-size: 24px;
-    line-height: 36px;
+    line-height: 3em;
     width: 50vw;
   }
 
   #philosophy .message h3 {
     font-size: 3.2vw;
   }
-
-  /* #works .worksWindow .title ul li h2 {
-    font-size: 48px;
-  }
-
-  #works .worksWindow .title ul li {
-    width: 200px;
-    height: 200px;
-  }
-
-  #works .worksWindow .title img {
-    width: 200px;
-    height: 200px;
-  } */
-
 
   #works .worksWindow .title h2 {
     font-size: 10vw;
@@ -819,9 +802,8 @@ header .advertisment a {
 
 @media screen and (max-width: 414px) {
   #philosophy .myPhilosophy li {
-    margin: 40vh 0 40vh 40vw;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 3em;
     width: 50vw;
   }
 }

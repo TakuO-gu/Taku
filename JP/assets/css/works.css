@@ -420,7 +420,6 @@ html {
 
   #showcase .description p {
     font-size: 18px;
-    line-height: 1.6em;
     word-wrap: break-word;
     line-break: strict;
   }
@@ -461,7 +460,7 @@ html {
 
   #showcase .description p {
     font-size: 16px;
-    line-height: 1.6em;
+    line-height: 2em;
     word-wrap: break-word;
     line-break: strict;
   }
