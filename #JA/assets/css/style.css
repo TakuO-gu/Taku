@@ -1,0 +1,827 @@
+@charset "utf-8";
+
+/***
+    The new CSS reset - version 1.9 (last updated 19.6.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+    - The "html" element is excluded, otherwise a bug in Chrome breaks the CSS hyphens property (https://github.com/elad2412/the-new-css-reset/issues/36)
+ */
+
+@font-face {
+  font-family: 'Salina';
+  src: url('../fonts/Salina-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Salina';
+  src: url('../fonts/Salina-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Salina';
+  src: url('../fonts/Salina-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Haresona';
+  src: url('../fonts/Harenosora.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+}
+
+:root {
+  --smoke-color: #F4F4F4;
+}
+
+html {
+  background: #222222;
+  font-size: 100%;
+}
+
+/* body {
+  background: #222222;
+} */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F6FF00;
+  mix-blend-mode: color-burn;
+  pointer-events: none;
+  z-index: 999;
+  transition: opacity 1.2s ease-out;
+}
+
+body.fade-out::before {
+  opacity: 0;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 140px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+header h1 {
+  position: relative;
+  left: -24px;
+  width: 98px;
+  height: 35px;
+}
+
+header div {
+  margin: 0 auto;
+  width: calc(100% - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header ul {
+  display: flex;
+}
+
+header a {
+  color: var(--smoke-color);
+  font-size: 20px;
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  margin-right: 72px;
+}
+
+header .advertisment a {
+  color: var(--smoke, #F4F4F4);
+  font-size: 20px;
+  font-family: Noto Sans JP;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 40px;
+}
+
+/* main */
+
+#hero div {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+#hero button {
+  color: var(--smoke, #F4F4F4);
+  font-size: 1.5rem;
+  font-family: 'Salina', cursive;
+  font-weight: 400;
+  font-style: normal;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  z-index: 998;
+
+  display: inline-block;
+  width: 210px;
+  height: 210px;
+  opacity: 1;
+  border: 2px solid var(--smoke, #F4F4F4);
+  border-radius: 50%;
+  background: rgba(34, 34, 34, 0.6);
+  /* backdrop-filter: blur(8px); */
+  text-align: center;
+  line-height: auto;
+  cursor: pointer;
+
+  transition: width 1.2s ease-out, height 1.2s ease-out, opacity 1.2s ease-out;
+  ;
+}
+
+#hero button.fade-in {
+  width: 100vw;
+  height: 100vw;
+  opacity: 0;
+}
+
+#hero .ImAGraphicDesigner {
+  z-index: -2;
+  color: #222222;
+  text-align: center;
+  font-size: 12.5rem;
+  font-family: 'Salina', cursive;
+  font-style: normal;
+  font-weight: 400;
+  -webkit-text-stroke: 2px #f4f4f4;
+  white-space: nowrap;
+  position: absolute;
+  top: 6vh;
+  left: -1224px;
+  transition: left 300ms ease-out, right 300ms ease-out;
+}
+
+#hero.fade-in .ImAGraphicDesigner {
+  left: 36px;
+}
+
+#hero .GraphicDesigner {
+  transition: color 1.2s ease-out;
+}
+
+#hero.fade-in .GraphicDesigner {
+  text-shadow: none;
+  color: #f4f4f4;
+}
+
+#hero .heresMyWorks {
+  z-index: -2;
+  color: #222222;
+  text-align: center;
+  font-size: 12.5rem;
+  font-family: 'Salina', cursive;
+  font-style: normal;
+  font-weight: 400;
+  -webkit-text-stroke: 2px #f4f4f4;
+  white-space: nowrap;
+  position: absolute;
+  top: 32vh;
+  left: 1135px;
+  transition: left 300ms ease-out;
+}
+
+#hero.fade-in .heresMyWorks {
+  left: 36px;
+}
+
+#hero svg {
+  position: absolute;
+  top: 44vh;
+  left: 17.5vw;
+  z-index: 0;
+  transition: width 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), top 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), left 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#hero.fade-in svg {
+  width: 130px;
+  height: auto;
+  top: 70vh;
+  left: 500px;
+}
+
+#hero .myPortrait {
+  z-index: -1;
+  width: 1418px;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  right: -748px;
+  transition-property: width, right, bottom;
+  transition-duration: 1.2s;
+  transition-timing-function: ease-out;
+}
+
+#hero.fade-in .myPortrait {
+  width: 845px;
+  right: -262px;
+  bottom: 0;
+}
+
+#hero .designedByTaku {
+  color: var(--smoke, #F4F4F4);
+  font-size: 64px;
+  font-family: 'Salina', cursive;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  position: absolute;
+  left: -76px;
+  top: 80vh;
+  opacity: 0;
+  transition: left 1.2s ease-out, opacity 1.2s ease-out;
+}
+
+#hero.fade-in .designedByTaku {
+  left: 24px;
+  opacity: 1;
+}
+
+#hero .latestUpdated {
+  color: var(--smoke, #F4F4F4);
+  font-size: 32px;
+  font-family: 'Salina', cursive;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  position: absolute;
+  left: -176px;
+  top: calc(80vh + 64px);
+  opacity: 0;
+  transition: left 1.2s ease-out, opacity 1.2s ease-out;
+}
+
+#hero.fade-in .latestUpdated {
+  left: 24px;
+  opacity: 1;
+}
+
+/* philosophy */
+
+#philosophy {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#philosophy::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #222 0%, rgba(34, 34, 34, 0.80) 50%, #222 100%);
+  mix-blend-mode: color;
+  backdrop-filter: blur(15px);
+  pointer-events: none;
+  opacity: 1;
+  z-index: -1;
+}
+
+#philosophy .decStatement {
+  position: absolute;
+  top: 100vh;
+  z-index: 1;
+  width: 100%;
+  will-change: transform;
+}
+
+#philosophy .myPhilosophy {
+  z-index: 1;
+}
+
+#philosophy .myPhilosophy li {
+  font-family: "a-otf-gothic-mb101-pr6n", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: var(--smoke, #F4F4F4);
+  margin: 40vh 0 40vh 40vw;
+  flex-direction: column;
+  font-size: 24px;
+  line-height: 80px;
+  width: 50vw;
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
+}
+
+#philosophy .myPhilosophy .blurDetached {
+  filter: none;
+}
+
+#philosophy .backgroundImages {
+  position: absolute;
+  top: 0;
+  height: auto;
+  width: 100%;
+  z-index: -2;
+}
+
+#philosophy .backgroundImages img {
+  width: 100vw;
+  height: auto;
+}
+
+
+#philosophy .message {
+  margin: 0 auto;
+  width: 0;
+  background: #222;
+  box-sizing: border-box;
+  height: 220vh;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}
+
+#philosophy .message h3 {
+  color: var(--smoke, #F4F4F4);
+  text-align: center;
+  font-size: 3vw;
+  font-family: 'Playfair Display', cursive;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0;
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  width: 90vw;
+}
+
+/* works */
+
+#works {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #222;
+  padding-top: 20vh;
+}
+
+#works .worksWindow {
+  margin: 1vh auto;
+  height: 360px;
+  width: 95%;
+  overflow: hidden;
+  will-change: transform;
+  border-radius: 1vw;
+  /* border: #F6FF00 5px solid; */
+}
+
+#works .worksWindow:not(:hover) {
+  opacity: 60%;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#works .worksWindow .title {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  mix-blend-mode: difference;
+  /* border: #82FB0A 5px solid; */
+  position: absolute;
+}
+
+#works .worksWindow .title .reelWrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#works .worksWindow .title li {
+  margin: 0 10vw;
+  /* border: #82FB0A 5px solid; */
+  display: inline-block;
+  width: fit-content;
+}
+
+#works .worksWindow .title h2 {
+  display: inline-block;
+  /* border: #0a7efb 5px solid; */
+  color: #FFF;
+  font-size: 128px;
+  font-family: 'Salina', cursive;
+  font-style: normal;
+  font-weight: 400;
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 0;
+  text-align: center;
+  padding: 50% 0;
+}
+
+#works .worksWindow .title li img {
+  width: 240px;
+  height: 240px;
+  /* background: blue; */
+}
+
+#works .worksWindowBG {
+  width: 100%;
+  height: 200%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+#works .d36 .worksWindowBG {
+  height: 120%;
+  background-color: #000000;
+}
+
+#works .d36 .worksWindowBG ul {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  height: 100%;
+  width: max-content;
+  justify-content: center;
+}
+
+#works .d36 .worksWindowBG ul li {
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin: 0 1vw;
+}
+
+#works .d36 .worksWindowBG ul li img {
+  height: 100%;
+  object-fit: contain;
+}
+
+#works .Sakuji .worksWindowBG {
+  background: #FDFD10;
+}
+
+#works .Sakuji .worksWindowBG img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4.7vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#works .NewTrials .worksWindowBG {
+  background: #82FB0A;
+}
+
+#works .NewTrials .worksWindowBG img {
+  width: auto;
+  height: 40%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#works .AppUI .worksWindowBG {
+  background: #cbb8ff;
+}
+
+#works .AppUI .worksWindowBG img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8.3vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#works .Poster .worksWindowBG {
+  background: #b3111b;
+}
+
+#works .Poster .worksWindowBG img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4.7vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#works .brandIdentity  .worksWindowBG img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#works .AD .worksWindowBG img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* footer */
+#footer {
+  margin: 12vh auto 18vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer .symbol {
+  width: clamp(47px, 14%, 274px);
+  margin-right: clamp(25px, 4%, 76px);
+  display: inline-block;
+}
+
+#footer h2 {
+  color: var(--smoke, #F4F4F4);
+  font-family: 'Salina', cursive;
+  font-size: clamp(21px, 3vw, 64px);
+  font-style: normal;
+  font-weight: 400;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#footer h2 img {
+  width: clamp(56px, 8.8vw, 169px);
+  margin-right: clamp(20px, 2vw, 61px);
+}
+
+#footer a {
+  color: var(--smoke, #F4F4F4);
+  text-align: center;
+  font-family: A-OTF Ryumin Pr6N;
+  font-size: clamp(13px, 2vw, 40px);
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+#footer .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: clamp(49px, 7.7vw, 148px);
+}
+
+#footer .content h2,
+#footer .content a {
+  margin: 0;
+}
+
+@media screen and (max-width: 820px) {
+
+  #hero .ImAGraphicDesigner,
+  .heresMyWorks {
+    font-size: 25vh;
+  }
+
+  #hero.fade-in svg {
+    width: 94px;
+    left: 80%;
+    top: 75vh;
+  }
+
+  #hero.fade-in .myPortrait {
+    width: 845px;
+    right: -40%;
+    bottom: 0;
+  }
+
+  #hero .designedByTaku {
+    font-size: 10vw;
+  }
+
+  #hero .latestUpdated {
+    font-size: 6vw;
+  }
+
+  #philosophy .decStatement {
+    width: 30vw;
+    top: 80vh;
+  }
+
+  #philosophy .myPhilosophy li {
+    margin: 40vh 0 40vh 40vw;
+    font-size: 24px;
+    line-height: 36px;
+    width: 50vw;
+  }
+
+  #philosophy .message h3 {
+    font-size: 3.2vw;
+  }
+
+  /* #works .worksWindow .title ul li h2 {
+    font-size: 48px;
+  }
+
+  #works .worksWindow .title ul li {
+    width: 200px;
+    height: 200px;
+  }
+
+  #works .worksWindow .title img {
+    width: 200px;
+    height: 200px;
+  } */
+
+
+  #works .worksWindow .title h2 {
+    font-size: 10vw;
+  }
+
+  #works .d36 .worksWindowBG ul li img {
+    height: 50%;
+  }
+
+  #works .Sakuji .worksWindowBG img {
+    height: 40%;
+  }
+
+  #works .NewTrials .worksWindowBG img {
+    height: 20%;
+  }
+
+  #works .Poster .worksWindowBG img {
+    height: 50%;
+  }
+
+  #works .worksWindow:not(:hover) {
+    opacity: 100%;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  #footer {
+    margin: 0 auto 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #footer .symbol {
+    width: 62px;
+    margin: 10% auto;
+  }
+
+  #footer .content {
+    margin-left: 0;
+    margin-top: 34px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  #philosophy .myPhilosophy li {
+    margin: 40vh 0 40vh 40vw;
+    font-size: 16px;
+    line-height: 24px;
+    width: 50vw;
+  }
+}
